@@ -1,0 +1,73 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+    <center><ion-icon name="logo-facebook"></ion-icon>Caacbay_ITPEL_CRUD</center>  
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot = "fixed" (ionRefresh) = "refreshPage($event)">
+  <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list lines= "full">
+    <ion-item>
+      <ion-label position = "floating">StudentID</ion-label>
+      <ion-input [(ngModel)]="student_num" type = "text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position = "floating">Student Name</ion-label>
+      <ion-input [(ngModel)]="student_name" type = "text"></ion-input>
+    </ion-item>
+  <ion-item>
+      <ion-label >Gender</ion-label>
+      <ion-select [(ngModel)]="gender" interface="popover" class="custom-options">
+        <ion-select-option value="male">Male</ion-select-option>
+        <ion-select-option value="female">Female</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position = "floating">Student Course</ion-label>
+      <ion-input [(ngModel)]="student_course" type = "text" placeholder="ex: BSIE"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label >Student Year</ion-label>
+      <ion-select [(ngModel)]="student_year" interface="popover" class="custom-options">
+        <ion-select-option value="1st">1st Year</ion-select-option>
+        <ion-select-option value="2nd">2nd Year</ion-select-option>
+        <ion-select-option value="3rd">3rd Year</ion-select-option>
+        <ion-select-option value="4th">4th Year</ion-select-option>
+      </ion-select>
+    </ion-item>
+  <ion-item>
+    <ion-label position = "floating">Address</ion-label>
+    <ion-input [(ngModel)]="address" type = "text"></ion-input>
+  </ion-item>
+<ion-row>
+  <ion-col>
+    <ion-button type="button" (click)="addConfirm()"
+    color = "primary" shape="full" expand="block">Add student
+  </ion-button>
+  </ion-col>
+</ion-row>
+
+<ion-row>
+  <ion-col>
+    <ion-button type="button" (click)="getStudents()" color="primary" shape="full" expand="block">View Student</ion-button>
+  </ion-col>
+</ion-row>
+</ion-list>
+
+<ion-list>
+<ion-list-header>Student List</ion-list-header>
+<ion-item lines="inset" *ngFor="let student of students">
+<ion-label>
+  <h5>ID: <strong>{{student.id}}</strong>, Name: <strong>{{student.name}}</strong>, Course: <strong>{{student.course}}</strong> </h5>
+</ion-label>
+<div class = "item-note">
+  <ion-icon name = "create" style = "zoom: 1.5;" [routerLink]="['/update-student/',student.id]"></ion-icon>
+  <ion-icon name="trash" style="zoom: 1.5;" (click)="deleteStudent(student.id)"> </ion-icon>
+</div>
+</ion-item>
+</ion-list>
+</ion-content>

@@ -17,13 +17,19 @@ headers: HttpHeaders;
     
   }
   addStudent(data){
-    return this.http.post('http://localhost/itpel_oe6/backend/create.php', data);
+    return this.http.post('http://localhost/final_itpel/backend/create.php', data);
   }
 
   getStudents(){
-    return this.http.get('http://localhost/itpel_oe6/backend/getStudents.php');
+    return this.http.get('http://localhost/final_itpel/backend/getStudents.php');
   }
   deleteStudent(id){
-    return this.http.delete('http://localhost/itpel_oe6/backend/delete.php?id='+id);
+    return this.http.delete('http://localhost/final_itpel/backend/delete.php?id='+id);
+  }
+  getStudent(id){
+    return this.http.get('http://localhost/final_itpel/backend/single.php?id='+id);
+  }
+  updateStudent(id, data){
+    return this.http.put('http://localhost/final_itpel/backend/Update.php?id='+id,data);
   }
 }

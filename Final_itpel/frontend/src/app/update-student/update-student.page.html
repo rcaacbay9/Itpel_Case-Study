@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <center><ion-title><ion-icon name = "create"></ion-icon>Update Student Info</ion-title></center>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list lines= "full">
+    <ion-item>
+      <ion-label position = "floating">StudentID</ion-label>
+      <ion-input [(ngModel)]="student_num" type = "text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position = "floating">Student Name</ion-label>
+      <ion-input [(ngModel)]="student_name" type = "text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label >Gender</ion-label>
+      <ion-select [(ngModel)]="gender" interface="popover" class="custom-options">
+        <ion-select-option value="male">Male</ion-select-option>
+        <ion-select-option value="female">Female</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position = "floating">Student Course</ion-label>
+      <ion-input [(ngModel)]="student_course" type = "text" placeholder="ex: BSIE"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label >Student Year</ion-label>
+      <ion-select [(ngModel)]="student_year" interface="popover" class="custom-options">
+        <ion-select-option value="1st">1st Year</ion-select-option>
+        <ion-select-option value="2nd">2nd Year</ion-select-option>
+        <ion-select-option value="3rd">3rd Year</ion-select-option>
+        <ion-select-option value="4th">4th Year</ion-select-option>
+      </ion-select>
+    </ion-item>
+  <ion-item>
+    <ion-label position = "floating">Address</ion-label>
+    <ion-input [(ngModel)]="address" type = "text"></ion-input>
+  </ion-item>
+<ion-row>
+  <ion-col>
+    <ion-button type="button" (click)="updateStudent()" color="primary" shape="full" >Update data</ion-button>
+  </ion-col>
+</ion-row>
+</ion-list>
+</ion-content>
